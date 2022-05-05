@@ -5,12 +5,26 @@ let outputField = document.getElementById("output");
 
 function nbsp(){
     let output = inputField.value.split(' ');
+    let outString="";
+    /*
+    *someday i will add regex to find all orphans 
+    *but not today
+
+    let regex = new RegExp("^([a-z0-9]{5,})$");
+    *this goes into if -> test method is the way to go
+    ||regex.test(output[i])
+    */
     for(let i = 0; i< output.length;i++){
         if(output[i].length==1){
+
             output[i]+="&nbsp;";
+            outString+=output[i];
+        }
+        else{
+            outString=outString+output[i]+" ";
         }
     }
-    output=output.join(" ");
+    output=outString.trim();
     return output;    
 }
 
